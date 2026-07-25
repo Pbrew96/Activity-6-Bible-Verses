@@ -42,7 +42,7 @@
             lblBookError = new Label();
             btnAddVerse = new Button();
             nudVerseImportance = new NumericUpDown();
-            textBox1 = new TextBox();
+            txtVerseMeaning = new TextBox();
             txtVerseText = new TextBox();
             txtVerseVerse = new TextBox();
             txtVerseChapter = new TextBox();
@@ -111,7 +111,7 @@
             grpAddVerse.Controls.Add(lblBookError);
             grpAddVerse.Controls.Add(btnAddVerse);
             grpAddVerse.Controls.Add(nudVerseImportance);
-            grpAddVerse.Controls.Add(textBox1);
+            grpAddVerse.Controls.Add(txtVerseMeaning);
             grpAddVerse.Controls.Add(txtVerseText);
             grpAddVerse.Controls.Add(txtVerseVerse);
             grpAddVerse.Controls.Add(txtVerseChapter);
@@ -209,14 +209,14 @@
             nudVerseImportance.Value = new decimal(new int[] { 1, 0, 0, 0 });
             nudVerseImportance.Leave += NudVerseImportanceLeaveEH;
             // 
-            // textBox1
+            // txtVerseMeaning
             // 
-            textBox1.Location = new Point(73, 232);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(189, 60);
-            textBox1.TabIndex = 10;
-            textBox1.Leave += TxtVerseMeaningLeaveEH;
+            txtVerseMeaning.Location = new Point(73, 232);
+            txtVerseMeaning.Multiline = true;
+            txtVerseMeaning.Name = "txtVerseMeaning";
+            txtVerseMeaning.Size = new Size(189, 60);
+            txtVerseMeaning.TabIndex = 10;
+            txtVerseMeaning.Leave += TxtVerseMeaningLeaveEH;
             // 
             // txtVerseText
             // 
@@ -406,7 +406,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtVerseMeaning;
         private TextBox txtVerseText;
         private TextBox txtVerseVerse;
         private TextBox txtVerseChapter;
