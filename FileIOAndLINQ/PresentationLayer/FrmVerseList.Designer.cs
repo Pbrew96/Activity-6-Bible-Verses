@@ -207,6 +207,7 @@
             nudVerseImportance.Size = new Size(189, 23);
             nudVerseImportance.TabIndex = 11;
             nudVerseImportance.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudVerseImportance.Leave += NudVerseImportanceLeaveEH;
             // 
             // textBox1
             // 
@@ -215,6 +216,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(189, 60);
             textBox1.TabIndex = 10;
+            textBox1.Leave += TxtVerseMeaningLeaveEH;
             // 
             // txtVerseText
             // 
