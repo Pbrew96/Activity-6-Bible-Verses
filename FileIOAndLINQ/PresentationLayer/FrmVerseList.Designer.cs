@@ -35,11 +35,7 @@
             tsmExit = new ToolStripMenuItem();
             grpAddVerse = new GroupBox();
             lblImportanceError = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
+            lblBookError = new Label();
             btnAddVerse = new Button();
             nudVerseImportance = new NumericUpDown();
             textBox1 = new TextBox();
@@ -54,11 +50,15 @@
             label2 = new Label();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            rdoShowAll = new RadioButton();
-            rdoShowLeastImportant = new RadioButton();
             rdoShowMostImportant = new RadioButton();
+            rdoShowLeastImportant = new RadioButton();
+            rdoShowAll = new RadioButton();
             trbNumberToShow = new TrackBar();
             dgvVerseDisplay = new DataGridView();
+            lblChapterError = new Label();
+            lblVerseError = new Label();
+            lblTextError = new Label();
+            lblMeaningError = new Label();
             mnsFileActions.SuspendLayout();
             grpAddVerse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudVerseImportance).BeginInit();
@@ -103,12 +103,12 @@
             // 
             // grpAddVerse
             // 
+            grpAddVerse.Controls.Add(lblMeaningError);
+            grpAddVerse.Controls.Add(lblTextError);
+            grpAddVerse.Controls.Add(lblVerseError);
+            grpAddVerse.Controls.Add(lblChapterError);
             grpAddVerse.Controls.Add(lblImportanceError);
-            grpAddVerse.Controls.Add(label11);
-            grpAddVerse.Controls.Add(label10);
-            grpAddVerse.Controls.Add(label9);
-            grpAddVerse.Controls.Add(label8);
-            grpAddVerse.Controls.Add(label7);
+            grpAddVerse.Controls.Add(lblBookError);
             grpAddVerse.Controls.Add(btnAddVerse);
             grpAddVerse.Controls.Add(nudVerseImportance);
             grpAddVerse.Controls.Add(textBox1);
@@ -133,61 +133,21 @@
             // 
             lblImportanceError.AutoSize = true;
             lblImportanceError.ForeColor = Color.Red;
-            lblImportanceError.Location = new Point(128, 338);
+            lblImportanceError.Location = new Point(73, 338);
             lblImportanceError.Name = "lblImportanceError";
-            lblImportanceError.Size = new Size(44, 15);
+            lblImportanceError.Size = new Size(96, 15);
             lblImportanceError.TabIndex = 18;
-            lblImportanceError.Text = "label12";
+            lblImportanceError.Text = "Importance Error";
             // 
-            // label11
+            // lblBookError
             // 
-            label11.AutoSize = true;
-            label11.ForeColor = Color.Red;
-            label11.Location = new Point(128, 295);
-            label11.Name = "label11";
-            label11.Size = new Size(82, 15);
-            label11.TabIndex = 17;
-            label11.Text = "Meaning Error";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.ForeColor = Color.Red;
-            label10.Location = new Point(128, 215);
-            label10.Name = "label10";
-            label10.Size = new Size(56, 15);
-            label10.TabIndex = 16;
-            label10.Text = "Text Error";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.ForeColor = Color.Red;
-            label9.Location = new Point(128, 135);
-            label9.Name = "label9";
-            label9.Size = new Size(62, 15);
-            label9.TabIndex = 15;
-            label9.Text = "Verse Error";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.ForeColor = Color.Red;
-            label8.Location = new Point(128, 90);
-            label8.Name = "label8";
-            label8.Size = new Size(77, 15);
-            label8.TabIndex = 14;
-            label8.Text = "Chapter Error";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.ForeColor = Color.Red;
-            label7.Location = new Point(128, 42);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 15);
-            label7.TabIndex = 13;
-            label7.Text = "Book Error";
+            lblBookError.AutoSize = true;
+            lblBookError.ForeColor = Color.Red;
+            lblBookError.Location = new Point(73, 45);
+            lblBookError.Name = "lblBookError";
+            lblBookError.Size = new Size(62, 15);
+            lblBookError.TabIndex = 13;
+            lblBookError.Text = "Book Error";
             // 
             // btnAddVerse
             // 
@@ -267,7 +227,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(39, 135);
+            label4.Location = new Point(36, 152);
             label4.Name = "label4";
             label4.Size = new Size(31, 15);
             label4.TabIndex = 3;
@@ -312,16 +272,16 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Filter and Sort";
             // 
-            // rdoShowAll
+            // rdoShowMostImportant
             // 
-            rdoShowAll.AutoSize = true;
-            rdoShowAll.Location = new Point(6, 32);
-            rdoShowAll.Name = "rdoShowAll";
-            rdoShowAll.Size = new Size(71, 19);
-            rdoShowAll.TabIndex = 0;
-            rdoShowAll.TabStop = true;
-            rdoShowAll.Text = "Show All";
-            rdoShowAll.UseVisualStyleBackColor = true;
+            rdoShowMostImportant.AutoSize = true;
+            rdoShowMostImportant.Location = new Point(6, 101);
+            rdoShowMostImportant.Name = "rdoShowMostImportant";
+            rdoShowMostImportant.Size = new Size(140, 19);
+            rdoShowMostImportant.TabIndex = 2;
+            rdoShowMostImportant.TabStop = true;
+            rdoShowMostImportant.Text = "Show Most Important";
+            rdoShowMostImportant.UseVisualStyleBackColor = true;
             // 
             // rdoShowLeastImportant
             // 
@@ -334,16 +294,16 @@
             rdoShowLeastImportant.Text = "Show Least Important";
             rdoShowLeastImportant.UseVisualStyleBackColor = true;
             // 
-            // rdoShowMostImportant
+            // rdoShowAll
             // 
-            rdoShowMostImportant.AutoSize = true;
-            rdoShowMostImportant.Location = new Point(6, 101);
-            rdoShowMostImportant.Name = "rdoShowMostImportant";
-            rdoShowMostImportant.Size = new Size(140, 19);
-            rdoShowMostImportant.TabIndex = 2;
-            rdoShowMostImportant.TabStop = true;
-            rdoShowMostImportant.Text = "Show Most Important";
-            rdoShowMostImportant.UseVisualStyleBackColor = true;
+            rdoShowAll.AutoSize = true;
+            rdoShowAll.Location = new Point(6, 32);
+            rdoShowAll.Name = "rdoShowAll";
+            rdoShowAll.Size = new Size(71, 19);
+            rdoShowAll.TabIndex = 0;
+            rdoShowAll.TabStop = true;
+            rdoShowAll.Text = "Show All";
+            rdoShowAll.UseVisualStyleBackColor = true;
             // 
             // trbNumberToShow
             // 
@@ -359,6 +319,46 @@
             dgvVerseDisplay.Name = "dgvVerseDisplay";
             dgvVerseDisplay.Size = new Size(486, 441);
             dgvVerseDisplay.TabIndex = 4;
+            // 
+            // lblChapterError
+            // 
+            lblChapterError.AutoSize = true;
+            lblChapterError.ForeColor = Color.Red;
+            lblChapterError.Location = new Point(73, 88);
+            lblChapterError.Name = "lblChapterError";
+            lblChapterError.Size = new Size(77, 15);
+            lblChapterError.TabIndex = 19;
+            lblChapterError.Text = "Chapter Error";
+            // 
+            // lblVerseError
+            // 
+            lblVerseError.AutoSize = true;
+            lblVerseError.ForeColor = Color.Red;
+            lblVerseError.Location = new Point(78, 134);
+            lblVerseError.Name = "lblVerseError";
+            lblVerseError.Size = new Size(62, 15);
+            lblVerseError.TabIndex = 20;
+            lblVerseError.Text = "Verse Error";
+            // 
+            // lblTextError
+            // 
+            lblTextError.AutoSize = true;
+            lblTextError.ForeColor = Color.Red;
+            lblTextError.Location = new Point(78, 214);
+            lblTextError.Name = "lblTextError";
+            lblTextError.Size = new Size(56, 15);
+            lblTextError.TabIndex = 21;
+            lblTextError.Text = "Text Error";
+            // 
+            // lblMeaningError
+            // 
+            lblMeaningError.AutoSize = true;
+            lblMeaningError.ForeColor = Color.Red;
+            lblMeaningError.Location = new Point(78, 294);
+            lblMeaningError.Name = "lblMeaningError";
+            lblMeaningError.Size = new Size(82, 15);
+            lblMeaningError.TabIndex = 22;
+            lblMeaningError.Text = "Meaning Error";
             // 
             // FrmVerseList
             // 
@@ -412,12 +412,16 @@
         private Label label10;
         private Label label9;
         private Label label8;
-        private Label label7;
+        private Label lblBookError;
         private GroupBox groupBox1;
         private RadioButton rdoShowMostImportant;
         private RadioButton rdoShowLeastImportant;
         private RadioButton rdoShowAll;
         private TrackBar trbNumberToShow;
         private DataGridView dgvVerseDisplay;
+        private Label lblMeaningError;
+        private Label lblTextError;
+        private Label lblVerseError;
+        private Label lblChapterError;
     }
 }
