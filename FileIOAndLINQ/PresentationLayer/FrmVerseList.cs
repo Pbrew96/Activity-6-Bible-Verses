@@ -6,6 +6,7 @@
  * Activity 6
  */
 
+using FileIOAndLINQ.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -274,6 +275,70 @@ namespace FileIOAndLINQ.PresentationLayer
                 lblImportanceError.Visible = true;
             }
         }
+        /// <summary>
+        /// Click event handler to add a new verse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAddVerseClickEH(object sender, EventArgs e)
+        {
+            // Declare and initialize
+            int chapter = -1;
+            VerseRequestModel verse;
+
+            // Check the flags to see if the user has entered valid data
+            if (isValidBook && isValidChapter && isValidVerse &&
+                isValidText && isValidMeaning && isValidImportance)
+            {
+                // Set up a try-catch to cast the chapter to an int
+                try
+                {
+                    // Parse the chapter to an int
+                    chapter = int.Parse(txtVerseChapter.Text);
+                }
+                catch (Exception)
+                {
+                    // Update the error label for the chapter
+                    lblChapterError.Text = "The chapter must be a number";
+
+                    // Show the chapter error label
+                    lblChapterError.Visible = true;
+                }
+
+                // Create the verse variable
+                verse = new VerseRequestModel(
+                    cmbVerseBook.Text,
+                    chapter,
+                    txtVerseVerse.Text,
+                    txtVerseText.Text,
+                    txtVerseMeaning.Text,
+                    (int)nudVerseImportance.Value);
+            }
+            else if (!isValidBook)
+            {
+                lblBookError.Visible = true;
+            }
+            else if (!isValidChapter)
+            {
+                lblChapterError.Visible = true;
+            }
+            else if (!isValidVerse)
+            {
+                lblVerseError.Visible = true;
+            }
+            else if (!isValidText)
+            {
+                lblTextError.Visible = true;
+            }
+            else if (!isValidMeaning)
+            {
+                lblMeaningError.Visible = true;
+            }
+            else if (!isValidImportance)
+            {
+                lblImportanceError.Visible = true;
+            }
+        } // End of BtnAddVerseClickEH
     }
 }
 

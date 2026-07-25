@@ -55,5 +55,6 @@ namespace FileIOAndLINQ.Models
             Meaning = meaning;
             Importance = importance;
         }
+
     }
 }
