@@ -34,6 +34,10 @@
             tsmLoad = new ToolStripMenuItem();
             tsmExit = new ToolStripMenuItem();
             grpAddVerse = new GroupBox();
+            lblMeaningError = new Label();
+            lblTextError = new Label();
+            lblVerseError = new Label();
+            lblChapterError = new Label();
             lblImportanceError = new Label();
             lblBookError = new Label();
             btnAddVerse = new Button();
@@ -55,10 +59,6 @@
             rdoShowAll = new RadioButton();
             trbNumberToShow = new TrackBar();
             dgvVerseDisplay = new DataGridView();
-            lblChapterError = new Label();
-            lblVerseError = new Label();
-            lblTextError = new Label();
-            lblMeaningError = new Label();
             mnsFileActions.SuspendLayout();
             grpAddVerse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudVerseImportance).BeginInit();
@@ -129,6 +129,46 @@
             grpAddVerse.TabStop = false;
             grpAddVerse.Text = "Add A Bible Verse";
             // 
+            // lblMeaningError
+            // 
+            lblMeaningError.AutoSize = true;
+            lblMeaningError.ForeColor = Color.Red;
+            lblMeaningError.Location = new Point(78, 294);
+            lblMeaningError.Name = "lblMeaningError";
+            lblMeaningError.Size = new Size(82, 15);
+            lblMeaningError.TabIndex = 22;
+            lblMeaningError.Text = "Meaning Error";
+            // 
+            // lblTextError
+            // 
+            lblTextError.AutoSize = true;
+            lblTextError.ForeColor = Color.Red;
+            lblTextError.Location = new Point(78, 214);
+            lblTextError.Name = "lblTextError";
+            lblTextError.Size = new Size(56, 15);
+            lblTextError.TabIndex = 21;
+            lblTextError.Text = "Text Error";
+            // 
+            // lblVerseError
+            // 
+            lblVerseError.AutoSize = true;
+            lblVerseError.ForeColor = Color.Red;
+            lblVerseError.Location = new Point(78, 134);
+            lblVerseError.Name = "lblVerseError";
+            lblVerseError.Size = new Size(62, 15);
+            lblVerseError.TabIndex = 20;
+            lblVerseError.Text = "Verse Error";
+            // 
+            // lblChapterError
+            // 
+            lblChapterError.AutoSize = true;
+            lblChapterError.ForeColor = Color.Red;
+            lblChapterError.Location = new Point(73, 88);
+            lblChapterError.Name = "lblChapterError";
+            lblChapterError.Size = new Size(77, 15);
+            lblChapterError.TabIndex = 19;
+            lblChapterError.Text = "Chapter Error";
+            // 
             // lblImportanceError
             // 
             lblImportanceError.AutoSize = true;
@@ -197,6 +237,7 @@
             txtVerseChapter.Name = "txtVerseChapter";
             txtVerseChapter.Size = new Size(189, 23);
             txtVerseChapter.TabIndex = 7;
+            txtVerseChapter.Leave += TxtVerseChapterLeaveEH;
             // 
             // cmbVerseBook
             // 
@@ -205,6 +246,7 @@
             cmbVerseBook.Name = "cmbVerseBook";
             cmbVerseBook.Size = new Size(189, 23);
             cmbVerseBook.TabIndex = 6;
+            cmbVerseBook.Leave += CmbVerseBookLeaveEH;
             // 
             // label6
             // 
@@ -319,46 +361,6 @@
             dgvVerseDisplay.Name = "dgvVerseDisplay";
             dgvVerseDisplay.Size = new Size(486, 441);
             dgvVerseDisplay.TabIndex = 4;
-            // 
-            // lblChapterError
-            // 
-            lblChapterError.AutoSize = true;
-            lblChapterError.ForeColor = Color.Red;
-            lblChapterError.Location = new Point(73, 88);
-            lblChapterError.Name = "lblChapterError";
-            lblChapterError.Size = new Size(77, 15);
-            lblChapterError.TabIndex = 19;
-            lblChapterError.Text = "Chapter Error";
-            // 
-            // lblVerseError
-            // 
-            lblVerseError.AutoSize = true;
-            lblVerseError.ForeColor = Color.Red;
-            lblVerseError.Location = new Point(78, 134);
-            lblVerseError.Name = "lblVerseError";
-            lblVerseError.Size = new Size(62, 15);
-            lblVerseError.TabIndex = 20;
-            lblVerseError.Text = "Verse Error";
-            // 
-            // lblTextError
-            // 
-            lblTextError.AutoSize = true;
-            lblTextError.ForeColor = Color.Red;
-            lblTextError.Location = new Point(78, 214);
-            lblTextError.Name = "lblTextError";
-            lblTextError.Size = new Size(56, 15);
-            lblTextError.TabIndex = 21;
-            lblTextError.Text = "Text Error";
-            // 
-            // lblMeaningError
-            // 
-            lblMeaningError.AutoSize = true;
-            lblMeaningError.ForeColor = Color.Red;
-            lblMeaningError.Location = new Point(78, 294);
-            lblMeaningError.Name = "lblMeaningError";
-            lblMeaningError.Size = new Size(82, 15);
-            lblMeaningError.TabIndex = 22;
-            lblMeaningError.Text = "Meaning Error";
             // 
             // FrmVerseList
             // 

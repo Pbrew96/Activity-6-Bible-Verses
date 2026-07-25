@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace FileIOAndLINQ.PresentationLayer
@@ -20,6 +21,10 @@ namespace FileIOAndLINQ.PresentationLayer
     {
         // Declare class level variables
         private List<Label> _errorLabels;
+        // Flags for user input
+        bool isValidBook = false, isValidChapter = false,
+             isValidVerse = false, isValidText = false,
+             isValidMeaning = false, isValidImportance = false;
         public FrmVerseList()
         {
             InitializeComponent();
@@ -84,6 +89,73 @@ namespace FileIOAndLINQ.PresentationLayer
 
             // Set the autocomplete source to the List items
             cmbVerseBook.AutoCompleteSource = AutoCompleteSource.ListItems;
+        }
+
+        /// <summary>
+        /// LEave event handler for the book combo box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CmbVerseBookLeaveEH(object sender, EventArgs e)
+        {
+            // Check if the user has selected a book
+            if (cmbVerseBook.SelectedIndex >= 0)
+            {
+                // Set the book flag to true
+                isValidBook = true;
+
+                // Hide the book error label
+                lblBookError.Visible = false;
+            }
+            else
+            {
+                // Set the book flag to false
+                isValidBook = false;
+
+                // Update the book error label
+                lblBookError.Text = "You must select a book";
+
+                // Show the book error label
+                lblBookError.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Leave event handler to make sure the user entered a number
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TxtVerseChapterLeaveEH(object sender, EventArgs e)
+        {
+            // Declare and initialize the RegEx object to check that the chapter is a number
+            Regex regex = new Regex(@"^[0-9]+$");
+
+            // Match object to hold the result of the RegEx comparison
+            Match match;
+
+            // Compare the regex pattern to the textbox text
+            match = regex.Match(txtVerseChapter.Text);
+
+            // Check if the match was a success
+            if (match.Success)
+            {
+                // Set the chapter flag to true
+                isValidChapter = true;
+
+                // Hide the chapter error label
+                lblChapterError.Visible = false;
+            }
+            else
+            {
+                // Set the chapter flag to false
+                isValidChapter = false;
+
+                // Update the text for the chapter error label
+                lblChapterError.Text = "The chapter must be a number";
+
+                // Show the chapter error label
+                lblChapterError.Visible = true;
+            }
         }
     }
 }
