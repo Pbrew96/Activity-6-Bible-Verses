@@ -33,6 +33,7 @@
             tsmSave = new ToolStripMenuItem();
             tsmLoad = new ToolStripMenuItem();
             tsmExit = new ToolStripMenuItem();
+            fileToolStripMenuItem1 = new ToolStripMenuItem();
             grpAddVerse = new GroupBox();
             lblMeaningError = new Label();
             lblTextError = new Label();
@@ -72,13 +73,13 @@
             mnsFileActions.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
             mnsFileActions.Location = new Point(0, 0);
             mnsFileActions.Name = "mnsFileActions";
-            mnsFileActions.Size = new Size(800, 24);
+            mnsFileActions.Size = new Size(1089, 24);
             mnsFileActions.TabIndex = 0;
             mnsFileActions.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmSave, tsmLoad, tsmExit });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmSave, tsmLoad, tsmExit, fileToolStripMenuItem1 });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
@@ -86,20 +87,28 @@
             // tsmSave
             // 
             tsmSave.Name = "tsmSave";
-            tsmSave.Size = new Size(100, 22);
+            tsmSave.Size = new Size(180, 22);
             tsmSave.Text = "Save";
+            tsmSave.Click += TsmSaveClickEH;
             // 
             // tsmLoad
             // 
             tsmLoad.Name = "tsmLoad";
-            tsmLoad.Size = new Size(100, 22);
+            tsmLoad.Size = new Size(180, 22);
             tsmLoad.Text = "Load";
+            tsmLoad.Click += TsmLoadClickEH;
             // 
             // tsmExit
             // 
             tsmExit.Name = "tsmExit";
-            tsmExit.Size = new Size(100, 22);
+            tsmExit.Size = new Size(180, 22);
             tsmExit.Text = "Exit";
+            // 
+            // fileToolStripMenuItem1
+            // 
+            fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            fileToolStripMenuItem1.Size = new Size(180, 22);
+            fileToolStripMenuItem1.Text = "File";
             // 
             // grpAddVerse
             // 
@@ -197,6 +206,7 @@
             btnAddVerse.TabIndex = 12;
             btnAddVerse.Text = "Add";
             btnAddVerse.UseVisualStyleBackColor = true;
+            btnAddVerse.Click += BtnAddVerseClickEH;
             // 
             // nudVerseImportance
             // 
@@ -360,17 +370,18 @@
             // 
             // dgvVerseDisplay
             // 
+            dgvVerseDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvVerseDisplay.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVerseDisplay.Location = new Point(302, 43);
             dgvVerseDisplay.Name = "dgvVerseDisplay";
-            dgvVerseDisplay.Size = new Size(486, 441);
+            dgvVerseDisplay.Size = new Size(775, 441);
             dgvVerseDisplay.TabIndex = 4;
             // 
             // FrmVerseList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 610);
+            ClientSize = new Size(1089, 610);
             Controls.Add(dgvVerseDisplay);
             Controls.Add(trbNumberToShow);
             Controls.Add(groupBox1);
@@ -430,5 +441,6 @@
         private Label lblTextError;
         private Label lblVerseError;
         private Label lblChapterError;
+        private ToolStripMenuItem fileToolStripMenuItem1;
     }
 }

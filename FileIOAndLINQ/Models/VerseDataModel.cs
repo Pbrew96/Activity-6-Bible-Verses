@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace FileIOAndLINQ.Models
@@ -58,5 +59,17 @@ namespace FileIOAndLINQ.Models
             Meaning = meaning;
             Importance = importance;
         }
+
+        /// <summary>
+        /// To string method to write Data model to a text file
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            // Return a formatted string with all data minus the id
+            return $"{Book}* {Chapter}* {Verse}* {Text}* {Meaning}* {Importance}";
+        }
+        }
     }
-}
+
+
