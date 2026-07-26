@@ -221,5 +221,14 @@ namespace FileIOAndLINQ.Services.DataAccessLayer
 
         }
 
+        public List<VerseDataModel> GetMostImportantVerses(int numToFind)
+        {
+            // Use LINQ method syntax to order the verses and select how
+            // many are needed based on the numToFind parameter
+            List<VerseDataModel> mostImportantVerses = _verses.OrderByDescending(verse => verse.Importance).Take(numToFind).ToList();
+            // Return the lsit of most important verses
+            return mostImportantVerses;
+        }
+
     }
 }

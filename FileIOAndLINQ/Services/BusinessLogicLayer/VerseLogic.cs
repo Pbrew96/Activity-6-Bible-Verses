@@ -87,6 +87,14 @@ namespace FileIOAndLINQ.Services.BusinessLogicLayer
             return ConvertVerseDataToDisplay(dataVerses);
         }
 
+        public List<VerseDisplayModel> GetMostImportantVerses(int numToFind)
+        {
+            // Get a list of the most important data verses
+            List<VerseDataModel> dataVerses = _verseDAO.GetMostImportantVerses(numToFind);
+            // Convert the dataVerses list to a displayVerses list and return
+            return ConvertVerseDataToDisplay(dataVerses);
+        }
+
         /// <summary>
         /// Convert a list of VerseDataModels to VerseDisplayModels
         /// </summary>
