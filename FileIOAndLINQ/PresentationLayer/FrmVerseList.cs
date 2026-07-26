@@ -561,10 +561,21 @@ namespace FileIOAndLINQ.PresentationLayer
             // Get the list of most important verses from the BLL
             List<VerseDisplayModel> mostImportantVerses = _verseLogic.GetMostImportantVerses(_numToShow);
             // Change the Datasource for the verse binding source
-            _versesBindingSource.DataSource= mostImportantVerses;
+            _versesBindingSource.DataSource = mostImportantVerses;
 
             // Format the data grid view
             FormatVersesDgv();
+        }
+
+        /// <summary>
+        /// Show the entire, unsorted list of verses
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RdoShowAllCheckedChangedEH(object sender, EventArgs e)
+        {
+            // Refresh the dgv with all of the users verses
+            RefreshVersesDgv();
         }
     }
 }
