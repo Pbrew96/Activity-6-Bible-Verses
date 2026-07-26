@@ -45,7 +45,7 @@ namespace FileIOAndLINQ.Services.BusinessLogicLayer
             // Declare and initialize
             // Get the verses from the DAO
 
-            List<VerseDataModels> dataVerses = _verseDAO.GetAllVerses();
+            List<VerseDataModel> dataVerses = _verseDAO.GetAllVerses();
 
             // Convert the dataVerses list to a displayVerses list and return
             return ConvertVerseDataToDisplay(dataVerses);

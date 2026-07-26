@@ -366,10 +366,12 @@
             // 
             // trbNumberToShow
             // 
+            trbNumberToShow.LargeChange = 1;
             trbNumberToShow.Location = new Point(0, 569);
             trbNumberToShow.Name = "trbNumberToShow";
             trbNumberToShow.Size = new Size(280, 45);
             trbNumberToShow.TabIndex = 3;
+            trbNumberToShow.Scroll += TrbnumberToShowScrollEH;
             // 
             // dgvVerseDisplay
             // 
