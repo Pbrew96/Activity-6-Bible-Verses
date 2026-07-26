@@ -34,6 +34,8 @@ namespace FileIOAndLINQ.Services.BusinessLogicLayer
             return _verseDAO.AddVerse(verse);
         }
 
+        
+
         /// <summary>
         /// Get a list of verses from the inventory
         /// </summary>
@@ -41,11 +43,58 @@ namespace FileIOAndLINQ.Services.BusinessLogicLayer
         public List<VerseDisplayModel> GetAllVerses()
         {
             // Declare and initialize
-
             // Get the verses from the DAO
-            List<VerseDataModel> dataVerses = _verseDAO.GetAllVerses();
 
-            // Create a DisplayModel list
+            List<VerseDataModels> dataVerses = _verseDAO.GetAllVerses();
+
+            // Convert the dataVerses list to a displayVerses list and return
+            return ConvertVerseDataToDisplay(dataVerses);
+        }
+          
+
+        /// <summary>
+        ///  Write the verses list to the given file
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public string WriteVersesToFile(string fileName)
+        {
+            // Call and return the DAO method
+            return _verseDAO.WriteVersesToFile(fileName);
+        }
+        
+        /// <summary>
+        /// Read the verse
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public string ReadVersesFromFile(string fileName)
+        {
+            //Return the DAO method
+            return _verseDAO.ReadVersesFromFile(fileName);
+        }
+        /// <summary>
+        ///  Get a list of the least important verses
+        /// </summary>
+        /// <param name="numToFind"></param>
+        /// <returns></returns>
+
+        public List<VerseDisplayModel> GetLeastImportantVerses(int numToFind)
+        {
+            // Get a list of the least important data verses
+            List<VerseDataModel> dataVerses = _verseDAO.GetLeastImportantVerses(numToFind);
+            // Convert the dataVerses list to a displayVerses list and return
+            return ConvertVerseDataToDisplay(dataVerses);
+        }
+
+        /// <summary>
+        /// Convert a list of VerseDataModels to VerseDisplayModels
+        /// </summary>
+        /// <param name="dataVerses"></param>
+        /// <returns></returns>
+        public List<VerseDisplayModel> ConvertVerseDataToDisplay(List<VerseDataModel> dataVerses)
+        {
+            // Declare and initialize
             List<VerseDisplayModel> displayVerses = new List<VerseDisplayModel>();
             string reference = "";
 
@@ -68,28 +117,6 @@ namespace FileIOAndLINQ.Services.BusinessLogicLayer
 
             // Return the display verses list
             return displayVerses;
-        }
-
-        /// <summary>
-        ///  Write the verses list to the given file
-        /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
-        public string WriteVersesToFile(string fileName)
-        {
-            // Call and return the DAO method
-            return _verseDAO.WriteVersesToFile(fileName);
-        }
-        
-        /// <summary>
-        /// Read the verse
-        /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
-        public string ReadVersesFromFile(string fileName)
-        {
-            //Return the DAO method
-            return _verseDAO.ReadVersesFromFile(fileName);
         }
     }
 }
