@@ -82,7 +82,7 @@ namespace FileIOAndLINQ.Services.BusinessLogicLayer
         }
         
         /// <summary>
-        /// Read the verses from the given file
+        /// Read the verse
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
