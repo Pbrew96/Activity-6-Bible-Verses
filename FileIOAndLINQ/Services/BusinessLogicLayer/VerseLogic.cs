@@ -126,5 +126,54 @@ namespace FileIOAndLINQ.Services.BusinessLogicLayer
             // Return the display verses list
             return displayVerses;
         }
+        /// <summary>
+        /// Calculate the total number of individual verses
+        /// </summary>
+        /// <returns></returns>
+        public int GetTotalVerseCount()
+        {
+            // Get all verses from the DAO
+            List<VerseDataModel> verses = _verseDAO.GetAllVerses();
+
+            // Store the total number of verses
+            int totalVerses = 0;
+
+            // Loop through the verse list
+            foreach (VerseDataModel verse in verses)
+            {
+                // Check if the verse contains a range
+                if (verse.Verse.Contains("-"))
+                {
+                    // Split the starting and ending verse numbers
+                    string[] range = verse.Verse.Split('-');
+
+                    int startingVerse;
+                    int endingVerse;
+
+                    // Make sure both values are valid numbers
+                    if (range.Length == 2 &&
+                        int.TryParse(range[0], out startingVerse) &&
+                        int.TryParse(range[1], out endingVerse) &&
+                        endingVerse >= startingVerse)
+                    {
+                        // Count every verse included in the range
+                        totalVerses += endingVerse - startingVerse + 1;
+                    }
+                    else
+                    {
+                        // Count an invalid range as one entry
+                        totalVerses++;
+                    }
+                }
+                else
+                {
+                    // A normal verse counts as one
+                    totalVerses++;
+                }
+            }
+
+            // Return the total
+            return totalVerses;
+        }
     }
 }

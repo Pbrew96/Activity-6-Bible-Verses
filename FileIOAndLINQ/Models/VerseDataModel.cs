@@ -13,7 +13,7 @@ using System.Text;
 
 namespace FileIOAndLINQ.Models
 {
-    class VerseDataModel
+    public class VerseDataModel
     {
         // Class level properties
         public int Id { get; set; }
@@ -59,6 +59,7 @@ namespace FileIOAndLINQ.Models
             Meaning = meaning;
             Importance = importance;
         }
+
 
         /// <summary>
         /// To string method to write Data model to a text file

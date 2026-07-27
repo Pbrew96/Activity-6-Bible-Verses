@@ -35,7 +35,12 @@ namespace FileIOAndLINQ.PresentationLayer
         private BindingSource _versesBindingSource;
 
         // filteres for file dialogs
-        string filter = "All Files (*.*)|*.*|" + "Text File (*.txt)|*.txt|" + "CSV File (*.csv)|*.csv|" + "JSON File (*.json)|*.json";
+        string filter = "All Files (*.*)|*.*|" +
+                "Text File (*.txt)|*.txt|" +
+                "CSV File (*.csv)|*.csv|" +
+                "JSON File (*.json)|*.json|" +
+                "XML File (*.xml)|*.xml|" +
+                "Excel File (*.xlsx)|*.xlsx";
 
         // Store the number of verses to show
         private int _numToShow;
@@ -409,6 +414,9 @@ namespace FileIOAndLINQ.PresentationLayer
 
             // Update the maximum for the number to show track bar
             trbNumberToShow.Maximum = verses.Count;
+
+            // Update the total number of individual verses
+            lblTotalVerses.Text = $"Total Verses: {_verseLogic.GetTotalVerseCount()}";
         }
         /// <summary>
         /// Format the verses data grid view
@@ -576,6 +584,27 @@ namespace FileIOAndLINQ.PresentationLayer
         {
             // Refresh the dgv with all of the users verses
             RefreshVersesDgv();
+        }
+
+        private void TxtSearchTextChangedEH(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim().ToLower();
+
+            List<VerseDisplayModel> verses = _verseLogic.GetAllVerses();
+
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                verses = verses
+                    .Where(verse =>
+                        verse.Reference.ToLower().Contains(searchText) ||
+                        verse.Text.ToLower().Contains(searchText) ||
+                        verse.Meaning.ToLower().Contains(searchText) ||
+                        verse.Importance.ToString().Contains(searchText))
+                    .ToList();
+            }
+
+            _versesBindingSource.DataSource = verses;
+            FormatVersesDgv();
         }
     }
 }

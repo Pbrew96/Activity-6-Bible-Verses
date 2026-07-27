@@ -60,6 +60,9 @@
             rdoShowAll = new RadioButton();
             trbNumberToShow = new TrackBar();
             dgvVerseDisplay = new DataGridView();
+            label7 = new Label();
+            txtSearch = new TextBox();
+            lblTotalVerses = new Label();
             mnsFileActions.SuspendLayout();
             grpAddVerse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudVerseImportance).BeginInit();
@@ -382,11 +385,40 @@
             dgvVerseDisplay.Size = new Size(775, 441);
             dgvVerseDisplay.TabIndex = 4;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(302, 500);
+            label7.Name = "label7";
+            label7.Size = new Size(45, 15);
+            label7.TabIndex = 5;
+            label7.Text = "Search:";
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(346, 496);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(230, 23);
+            txtSearch.TabIndex = 6;
+            txtSearch.TextChanged += TxtSearchTextChangedEH;
+            // 
+            // lblTotalVerses
+            // 
+            lblTotalVerses.AutoSize = true;
+            lblTotalVerses.Location = new Point(935, 502);
+            lblTotalVerses.Name = "lblTotalVerses";
+            lblTotalVerses.Size = new Size(75, 15);
+            lblTotalVerses.TabIndex = 7;
+            lblTotalVerses.Text = "Total Verse: 0";
+            // 
             // FrmVerseList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1089, 610);
+            Controls.Add(lblTotalVerses);
+            Controls.Add(txtSearch);
+            Controls.Add(label7);
             Controls.Add(dgvVerseDisplay);
             Controls.Add(trbNumberToShow);
             Controls.Add(groupBox1);
@@ -447,5 +479,8 @@
         private Label lblVerseError;
         private Label lblChapterError;
         private ToolStripMenuItem fileToolStripMenuItem1;
+        private Label label7;
+        private TextBox txtSearch;
+        private Label lblTotalVerses;
     }
 }
